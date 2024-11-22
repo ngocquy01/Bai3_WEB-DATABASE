@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Danh sách môn học</h2>
+<form method="POST">
+    <input type="text" name="name" placeholder="Tên môn học" required>
+    <input type="text" name="code" placeholder="Mã môn học" required>
+    <button type="submit">Thêm</button>
+</form>
+<ul>
+    {% for course in courses %}
+    <li>{{ course.name }} - {{ course.code }}</li>
+    {% endfor %}
+</ul>
+{% endblock %}

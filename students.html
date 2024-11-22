@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Danh sách sinh viên</h2>
+<form method="POST">
+    <input type="text" name="name" placeholder="Tên sinh viên">
+    <input type="email" name="email" placeholder="Email">
+    <button type="submit">Thêm</button>
+</form>
+<ul>
+    {% for student in students %}
+    <li>{{ student.name }} - {{ student.email }}</li>
+    {% endfor %}
+</ul>
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Quản lý điểm số</h2>
+<form method="POST">
+    <select name="student_id" required>
+        <option value="" disabled selected>Chọn sinh viên</option>
+        {% for student in students %}
+        <option value="{{ student.id }}">{{ student.name }}</option>
+        {% endfor %}
+    </select>
+    <select name="course_id" required>
+        <option value="" disabled selected>Chọn môn học</option>
+        {% for course in courses %}
+        <option value="{{ course.id }}">{{ course.name }}</option>
+        {% endfor %}
+    </select>
+    <input type="number" name="score" step="0.1" placeholder="Điểm số" required>
+    <button type="submit">Lưu</button>
+</form>
+<ul>
+    {% for score in scores %}
+    <li>
+        Sinh viên: {{ score.student_id }} - Môn học: {{ score.course_id }} - Điểm: {{ score.score }}
+    </li>
+    {% endfor %}
+</ul>
+{% endblock %}
